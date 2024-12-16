@@ -1,0 +1,497 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: white;
+    padding: 25px 40px 25px 60px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Remove the overlay */
+nav::before {
+    display: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.shop-name {
+    color: #333;
+    font-size: 42px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(45deg, #dc3545, #fd7e14);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.shop-name:hover {
+    transform: scale(1.05);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.nav-buttons button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.order-btn {
+    background: linear-gradient(45deg, #dc3545, #fd7e14);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+}
+
+.order-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+.order-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #28a745;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.order-btn.clicked::before {
+    left: 0;
+}
+
+.order-btn:active {
+    transform: scale(0.95);
+}
+
+.cart-btn {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    font-weight: bold;
+    width: 85px;
+    height: 85px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.cart-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+}
+
+.contact-btn {
+    background: linear-gradient(45deg, #17a2b8, #20c997);
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(23, 162, 184, 0.3);
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(23, 162, 184, 0.4);
+}
+
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(45deg, #dc3545, #fd7e14);
+    border: none;
+    border-radius: 12px;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.toggle-btn:active {
+    transform: scale(0.95);
+}
+
+/* Add animation for toggle button when menu is open */
+.toggle-btn.active {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    transform: rotate(90deg);
+}
+
+/* Update JavaScript for toggle button animation */
+
+@media screen and (max-width: 768px) {
+    .toggle-btn {
+        position: relative;
+        z-index: 2;
+        margin-right: 15px;
+    }
+
+    .nav-buttons {
+        display: none;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        z-index: 1;
+    }
+
+    .nav-buttons.active {
+        display: flex;
+    }
+
+    .nav-buttons button {
+        width: 100%;
+    }
+
+    .cart-btn {
+        width: 100%;
+        height: 60px;
+        font-size: 32px;
+    }
+
+    .logo-section {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+    }
+    
+    .nav-buttons {
+        margin-left: 0;
+    }
+
+    .contact-info {
+        display: none;
+    }
+}
+
+.order-btn span {
+    display: inline-block;
+    filter: brightness(0) invert(1);
+    animation: buttonPulse 2s infinite;
+}
+
+.cart-btn span {
+    display: inline-block;
+    filter: brightness(0) invert(1);
+    animation: buttonPulse 2s infinite;
+}
+
+.contact-btn span {
+    display: inline-block;
+    filter: brightness(0) invert(1);
+    animation: buttonPulse 2s infinite;
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Active state for buttons */
+.nav-buttons button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.menu-items {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -400px;
+    height: 100vh;
+    width: 400px;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+    z-index: 1000;
+    padding: 0;
+}
+
+.menu-items.active {
+    display: block;
+    left: 0;
+}
+
+.menu-header {
+    padding: 35px;
+    background: linear-gradient(45deg, #dc3545, #fd7e14);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu-logo {
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.menu-logo:hover {
+    transform: rotate(10deg);
+}
+
+.menu-shop-name {
+    color: white;
+    font-size: 38px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.menu-links {
+    padding: 30px 0;
+}
+
+.menu-links a {
+    display: flex;
+    align-items: center;
+    padding: 20px 35px;
+    color: #333;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-links a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(45deg, #dc354522, #fd7e1422);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.menu-links a:hover {
+    color: #dc3545;
+    padding-left: 45px;
+}
+
+.menu-links a:hover::before {
+    width: 100%;
+}
+
+/* Add icons to menu items */
+.menu-links a::after {
+    content: '→';
+    position: absolute;
+    right: 35px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-links a:hover::after {
+    opacity: 1;
+    transform: translateX(10px);
+}
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+/* Update toggle button click functionality in JavaScript */
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 5px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #17a2b8, #20c997);
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contact-text {
+    display: flex;
+    align-items: center;
+}
+
+.phone-number {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.phone-icon {
+    font-size: 24px;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+/* Add pulse animation for phone icon */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.active {
+    opacity: 1;
+}
+.slide1 {
+    background: url('slide1.jpg.jpg') no-repeat center center/cover;
+}
+.slide2 {
+    background: url('slide2.jpg.jpg') no-repeat center center/cover;
+}
+.slide3 {
+    background: url('slide3.jpg.jpg') no-repeat center center/cover;
+}
+.content {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+}
+.button {
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+
+
+
