@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Shop</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="left-section">
+                <button class="toggle-btn" onclick="toggleMenu(); toggleNavButtons()">☰</button>
+                <div class="contact-info">
+                    <div class="contact-text">
+                        <span class="phone-icon">📞</span>
+                        <span class="phone-number">+91 98765 43210</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logo-section">
+                <img src="pizza-logo.png" alt="Pizza Shop Logo" class="logo">
+                <a href="#" class="shop-name"><b>PIZZA HUT</b></a>
+            </div>
+
+            <div class="nav-buttons" id="navButtons">
+                <button class="order-btn"><span>🛵</span> ORDER NOW</button>
+                <button class="cart-btn"><span>🧺</span></button>
+                <button class="contact-btn">📞CONTACT US</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="menu-items" id="menuItems">
+        <div class="menu-header">
+            <img src="pizza-logo.png" alt="Pizza Shop Logo" class="menu-logo">
+            <span class="menu-shop-name">PIZZA HUT</span>
+        </div>
+        <div class="menu-links">
+            <a href="#" class="Home.html">Home</a>
+            <a href="#" class="About.html">About</a>
+            <a href="#" class="Shop.html">Shop</a>
+            <a href="#" class="Contact.html">Contact</a>
+        </div>
+    </div>
+    <div class="slider">
+        <div class="slide slide1 active">
+            <div class="content">
+                <p>This is an attractive slider example.</p>
+                <button class="button" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+        <div class="slide slide2">
+            <div class="content">
+                <p>Enjoy the beautiful images.</p>
+                <button class="button" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+        <div class="slide slide3">
+            <div class="content">
+                <p>Thank you for watching!</p>
+                <button class="button" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="promo-message">
+        <p>Pizza Hut GET 50% OFF JOIN PIZZA HUT REWARDS CREATE AN ACCOUNT OR SIGN IN</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
